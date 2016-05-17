@@ -8,31 +8,31 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * @version	1.0
  * @since 1.0
  */
- 
+
 class WB_Priority_Port_Paye {
-	
+
 	/**
 	 * Hooks & Filters
 	 *
 	 * @since 1.0
 	 * @public
-	 */	
+	 */
 	public function __construct () {
-		
+
 		add_action( 'admin_footer-edit.php', array( $this, 'WB_Priority_Port_Paye_status' ), 1 );
 		add_action( 'load-edit.php', array( $this, 'WB_Priority_Port_Paye' ), 2 );
-		
+
 	}
-	
+
 	/**
 	 * Prinetti Lähete Status
 	 *
 	 * @since 1.0
 	 * @access public
 	 * @return void
-	 */	
+	 */
 	public function WB_Priority_Port_Paye_status() {
-		
+
 		global $post_type;
 		if($post_type == 'shop_order') {
 			?>
@@ -45,7 +45,7 @@ class WB_Priority_Port_Paye {
 			</script>
 			<?php
 		}
-		
+
 	}
 
 	/**
@@ -54,9 +54,9 @@ class WB_Priority_Port_Paye {
 	 * @since 1.0
 	 * @static
 	 * @return void
-	 */	
+	 */
 	public static function WB_Priority_Port_Paye() {
-		
+
 		// Käynnistetään Custom Order Status
 		global $typenow;
 		$post_type = $typenow;
@@ -66,7 +66,7 @@ class WB_Priority_Port_Paye {
 			$action = $wp_list_table->current_action();
 
 			$allowed_actions = array("port_paye_priority");
-		 
+
 			if(!in_array($action, $allowed_actions)) return;
 
 			if(isset($_REQUEST['post'])) {
@@ -92,54 +92,54 @@ class WB_Priority_Port_Paye {
 
 					$order->populate($customer_order);
 					$orderdata = (array) $order;
-					
+
 					$post_ids = array_map( 'absint', (array) $_REQUEST['post'] );
 
 					foreach ( $post_ids as $post_id ) {
-						
-						$order = wc_get_order( $post_id ); 
-						
-						$img = plugins_url() . '/priority-port-paye/assets/img/PRI_black.png';
+
+						$order = wc_get_order( $post_id );
+
+						$img = plugin_dir_url( __FILE__ ) . 'assets/img/PRI_black.png';
 
 						echo '<div class="port-paye-address">';
-						echo utf8_decode('<br>' .$order->get_formatted_shipping_address() ); 
+						echo utf8_decode('<br>' .$order->get_formatted_shipping_address() );
 						echo '</div>';
 						echo '<div class="port-paye-image">';
 						echo '<img src="' . $img . '">';
 						echo '</div>';
 						echo utf8_decode('<br><br>');
-						
+
 						?>
 						<style>
 							.port-paye-address {
 								width: 30%;
 								float: left;
 							}
-							
+
 							.port-paye-image {
 								width: 30%;
 								float: left;
 							}
-							
+
 							.port-paye-image img {
 								width: 90.708661417px;
 								height: auto;
 							}
-							
+
 							small { font-size: 15px; }
 						</style>
-					<?php 
-					} 
+					<?php
+					}
 
 					break;
 				}
-				exit();						
-			}						
-				
-		}	
-		
+				exit();
+			}
+
+		}
+
 	}
 
 }
 
-$WB_Priority_Port_Paye = new WB_Priority_Port_Paye(); 
+$WB_Priority_Port_Paye = new WB_Priority_Port_Paye();
