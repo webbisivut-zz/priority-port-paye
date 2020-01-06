@@ -98,7 +98,7 @@ class WB_Priority_Port_Paye {
 				}
 
 				$options = get_option( 'port_paye_options' );
-				if( isset( $options['port_paye_field_tarra_input'] ) && isset( $options['port_paye_field_tarra_input'] ) > 0 ) {
+				if( isset( $options['port_paye_field_tarra_input'] ) && $options['port_paye_field_tarra_input'] > 0 ) {
 					$set_width = $options['port_paye_field_tarra_input'] . 'px';
 				}
 				?>
