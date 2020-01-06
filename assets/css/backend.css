@@ -1,0 +1,12 @@
+.wc-action-button-port_paye_priority:after{
+    content: 'PP';
+    display: block;
+    height: 10px;  /*height of icon */
+    width: 10px;  /*width of icon */
+    position: absolute;
+      /*where to replace the icon */
+    top: 0px;
+    left: -10px;
+      /*background */
+    background: rgb(216, 148, 21);
+}
