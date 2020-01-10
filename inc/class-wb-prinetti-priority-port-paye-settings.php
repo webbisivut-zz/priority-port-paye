@@ -47,6 +47,45 @@ class WB_Priority_Port_Paye_Settings {
                 'port_paye_custom_data' => 'custom',
             ]
         );
+        
+        add_settings_field(
+            'port_paye_field_tarra_input2',
+            __( 'Lähettäjän nimi', 'port_paye' ),
+            array( $this, 'port_paye_field_tarra_input2'),
+            'port_paye',
+            'port_paye_section_developers',
+            [
+                'label_for' => 'port_paye_field_tarra_input2',
+                'class' => 'port_paye_row',
+                'port_paye_custom_data' => 'custom',
+            ]
+        );
+        
+        add_settings_field(
+            'port_paye_field_tarra_input3',
+            __( 'Ylämarginaali', 'port_paye' ),
+            array( $this, 'port_paye_field_tarra_input3'),
+            'port_paye',
+            'port_paye_section_developers',
+            [
+                'label_for' => 'port_paye_field_tarra_input3',
+                'class' => 'port_paye_row',
+                'port_paye_custom_data' => 'custom',
+            ]
+        );
+        
+        add_settings_field(
+            'port_paye_field_tarra_input4',
+            __( 'Vasen marginaali', 'port_paye' ),
+            array( $this, 'port_paye_field_tarra_input4'),
+            'port_paye',
+            'port_paye_section_developers',
+            [
+                'label_for' => 'port_paye_field_tarra_input4',
+                'class' => 'port_paye_row',
+                'port_paye_custom_data' => 'custom',
+            ]
+        );
     }
 
     public function port_paye_section_developers( $args ) {
@@ -81,6 +120,33 @@ class WB_Priority_Port_Paye_Settings {
         <input type="text" id="port_paye_field_tarra_input" name="port_paye_options[port_paye_field_tarra_input]" value="<?php echo isset( $options['port_paye_field_tarra_input'] ) ? esc_attr( $options['port_paye_field_tarra_input']) : '' ?>" />
         <?php
     }
+
+    public function port_paye_field_tarra_input3( $args ) {
+        $options = get_option( 'port_paye_options' );
+        ?>
+
+        <p>Osoite, ylämarginaali. Jos ei asetettu, käytetään oletusmarginaalia.</p>
+        <input type="text" id="port_paye_field_tarra_input3" name="port_paye_options[port_paye_field_tarra_input3]" value="<?php echo isset( $options['port_paye_field_tarra_input3'] ) ? esc_attr( $options['port_paye_field_tarra_input3']) : '' ?>" />
+        <?php
+    }
+
+    public function port_paye_field_tarra_input4( $args ) {
+        $options = get_option( 'port_paye_options' );
+        ?>
+
+        <p>Osoite, vasen marginaali. Jos ei asetettu, käytetään oletusmarginaalia.</p>
+        <input type="text" id="port_paye_field_tarra_input4" name="port_paye_options[port_paye_field_tarra_input4]" value="<?php echo isset( $options['port_paye_field_tarra_input4'] ) ? esc_attr( $options['port_paye_field_tarra_input4']) : '' ?>" />
+        <?php
+    }
+
+    public function port_paye_field_tarra_input2( $args ) {
+        $options = get_option( 'port_paye_options' );
+        ?>
+
+        <p>Lähettäjän nimi, näkyy osoitetarrassa</p>
+        <input type="text" id="port_paye_field_tarra_input2" name="port_paye_options[port_paye_field_tarra_input2]" value="<?php echo isset( $options['port_paye_field_tarra_input2'] ) ? esc_attr( $options['port_paye_field_tarra_input2']) : '' ?>" />
+        <?php
+    }
     
     public function port_paye_options_page() {
         add_menu_page(
@@ -95,6 +161,15 @@ class WB_Priority_Port_Paye_Settings {
         $new_input = array();
         if( isset( $input['port_paye_field_tarra_input'] ) )
             $new_input['port_paye_field_tarra_input'] = absint( $input['port_paye_field_tarra_input'] );
+
+        if( isset( $input['port_paye_field_tarra_input2'] ) )
+            $new_input['port_paye_field_tarra_input2'] = sanitize_text_field( $input['port_paye_field_tarra_input2'] );
+
+        if( isset( $input['port_paye_field_tarra_input3'] ) )
+            $new_input['port_paye_field_tarra_input3'] = sanitize_text_field( $input['port_paye_field_tarra_input3'] );
+
+        if( isset( $input['port_paye_field_tarra_input4'] ) )
+            $new_input['port_paye_field_tarra_input4'] = sanitize_text_field( $input['port_paye_field_tarra_input4'] );
 
         if( isset( $input['port_paye_field_tarra'] ) )
             $new_input['port_paye_field_tarra'] = sanitize_text_field( $input['port_paye_field_tarra'] );

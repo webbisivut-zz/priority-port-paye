@@ -10,10 +10,7 @@ Lisäosa on GPL lisensoitu. Lisäosaa saa ladata, muokata ja levittää täysin 
 4) Valitse .zip paketti koneeltasi, asenna lisäosa ja aktivoi se
 
 == Käyttö ==
-Tilaustenhallinnassa lisäosalla on mahdollista tulostaa PortPaye tarra valitulle tilaukselle.
+Tilaustenhallinnassa lisäosalla on mahdollista tulostaa PortPaye tarra valitulle tilaukselle. Asetukset löytyvät kohdasta "Port Paye Asetukset".
 
 == Tuki ==
-Lisäosalle ei ole tarjolla tukea.
-
-== Päivitykset ==
-Lisäosaa ei kehitetä aktiivisesti, eikä näin ollen päivitetä säännöllisesti.
+Lisäosalle ei ole tarjolla tukea. Jos haluat lisäominaisuuksia, ota yhteyttä: info ät webbisivut piste org.
