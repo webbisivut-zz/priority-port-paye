@@ -135,10 +135,12 @@ class WB_Priority_Port_Paye {
 					$stamp_left_margin = '700px';
 					$address_top_margin = '20px';
 					$address_left_margin = '320px';
+					$total_height = '864px';
 				} else {
 					$stamp_left_margin = '500px';
 					$address_top_margin = '20px';
 					$address_left_margin = '220px';
+					$total_height = '595px';
 				}
 
 				$options = get_option( 'port_paye_options' );
@@ -153,14 +155,22 @@ class WB_Priority_Port_Paye {
 				if( isset( $options['port_paye_field_tarra_input4'] ) && $options['port_paye_field_tarra_input4'] > 0 ) {
 					$address_left_margin = $options['port_paye_field_tarra_input4'] . 'px';
 				}
+
+				if( isset( $options['port_paye_field_tarra_input5'] ) && $options['port_paye_field_tarra_input5'] > 0 ) {
+					$total_height = $options['port_paye_field_tarra_input5'] . 'px';
+				}
+
+				if( isset( $options['port_paye_field_tarra_input4'] ) && $options['port_paye_field_tarra_input4'] > 0 ) {
+					$address_left_margin = $options['port_paye_field_tarra_input4'] . 'px';
+				}
 				?>
 				<style>
 					.port-paye-wrap {
 						width: 100%;
-						height: auto;
+						height: <?php echo $total_height ?>;
 						display: table;
-						margin-bottom: 200px;
 						position: relative;
+						padding: 20px;
 					}
 
 					.port-paye-sender-address {

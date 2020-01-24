@@ -86,6 +86,19 @@ class WB_Priority_Port_Paye_Settings {
                 'port_paye_custom_data' => 'custom',
             ]
         );
+        
+        add_settings_field(
+            'port_paye_field_tarra_input5',
+            __( 'Korkeus', 'port_paye' ),
+            array( $this, 'port_paye_field_tarra_input5'),
+            'port_paye',
+            'port_paye_section_developers',
+            [
+                'label_for' => 'port_paye_field_tarra_input5',
+                'class' => 'port_paye_row',
+                'port_paye_custom_data' => 'custom',
+            ]
+        );
     }
 
     public function port_paye_section_developers( $args ) {
@@ -139,6 +152,15 @@ class WB_Priority_Port_Paye_Settings {
         <?php
     }
 
+    public function port_paye_field_tarra_input5( $args ) {
+        $options = get_option( 'port_paye_options' );
+        ?>
+
+        <p>Korkeus. Jos ei asetettu, käytetään oletuskorkeutta.</p>
+        <input type="text" id="port_paye_field_tarra_input5" name="port_paye_options[port_paye_field_tarra_input5]" value="<?php echo isset( $options['port_paye_field_tarra_input5'] ) ? esc_attr( $options['port_paye_field_tarra_input5']) : '' ?>" />
+        <?php
+    }
+
     public function port_paye_field_tarra_input2( $args ) {
         $options = get_option( 'port_paye_options' );
         ?>
@@ -170,6 +192,9 @@ class WB_Priority_Port_Paye_Settings {
 
         if( isset( $input['port_paye_field_tarra_input4'] ) )
             $new_input['port_paye_field_tarra_input4'] = sanitize_text_field( $input['port_paye_field_tarra_input4'] );
+
+        if( isset( $input['port_paye_field_tarra_input5'] ) )
+            $new_input['port_paye_field_tarra_input5'] = sanitize_text_field( $input['port_paye_field_tarra_input5'] );
 
         if( isset( $input['port_paye_field_tarra'] ) )
             $new_input['port_paye_field_tarra'] = sanitize_text_field( $input['port_paye_field_tarra'] );
