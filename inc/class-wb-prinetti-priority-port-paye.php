@@ -165,6 +165,7 @@ class WB_Priority_Port_Paye {
 				}
 				?>
 				<style>
+				@media screen, print {
 					.port-paye-wrap {
 						width: 100%;
 						height: <?php echo $total_height ?>;
@@ -199,6 +200,7 @@ class WB_Priority_Port_Paye {
 					}
 
 					small { font-size: 15px; }
+				}
 				</style>
 			<?php
 			}

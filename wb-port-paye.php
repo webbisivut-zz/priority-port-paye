@@ -1,7 +1,7 @@
 <?php
 /*
  * Plugin Name: Priority Port Paye
- * Version: 1.2
+ * Version: 1.2.1
  * Description: Posti Priority Port Paye Labels.
  * Requires at least: 4.0
  * Tested up to: 5.9.3
