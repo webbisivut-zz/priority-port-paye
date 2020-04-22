@@ -169,7 +169,7 @@ class WB_Priority_Port_Paye {
 					.port-paye-wrap {
 						width: 100%;
 						height: <?php echo $total_height ?>;
-						display: table;
+						display: block;
 						position: relative;
 						padding: 20px;
 					}
